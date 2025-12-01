@@ -1,0 +1,485 @@
+/* ============================================================
+   1. RESET & BAZĂ
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ============================================================
+   2. CONTAINER GENERAL
+   ============================================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* ============================================================
+   3. HEADER & NAV
+   ============================================================ */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav a,
+nav button {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid white;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+nav a:hover,
+nav button:hover {
+    background: white;
+    color: #667eea;
+}
+
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ============================================================
+   4. CONȚINUT GENERAL
+   ============================================================ */
+.content {
+    padding: 40px;
+    min-height: 400px;
+}
+
+.page-title {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.empty-text {
+    text-align: center;
+    color: #777;
+    margin-top: 40px;
+}
+
+/* ============================================================
+   5. FORMULARE LOGIN / REGISTER
+   ============================================================ */
+.auth-form,
+.login-box {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.auth-form h2,
+.login-box h2 {
+    color: #667eea;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.auth-form .form-group,
+.login-box .form-group {
+    margin-bottom: 18px;
+}
+
+.auth-form label,
+.login-box label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 600;
+}
+
+.auth-form input,
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+.auth-form input:focus,
+.login-box input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn,
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover,
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   6. ALERT BOX
+   ============================================================ */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ============================================================
+   7. LISTĂ PRODUSE (GRID)
+   ============================================================ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background: #fdfdff;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    padding: 18px;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.product-img {
+    width: 100%;
+    height: 170px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+.product-image {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.product-category {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+    margin-top: 5px;
+}
+
+.add-to-cart-btn:hover {
+    background: #764ba2;
+}
+
+/* ============================================================
+   8. CATEGORII
+   ============================================================ */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: #f8f9ff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9), transparent);
+    opacity: 0.6;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.category-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #4b4b7a;
+    margin-bottom: 8px;
+}
+
+.category-count {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.category-card a {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.category-card a:hover {
+    background: #764ba2;
+}
+
+/* ============================================================
+   9. COȘ DE CUMPĂRĂTURI
+   ============================================================ */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #f8f9fa;
+}
+
+.cart-item-info h3 {
+    margin: 0 0 5px;
+}
+
+.cart-item-info p {
+    margin: 0;
+    color: #666;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-actions input[type="number"] {
+    width: 70px;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.cart-item-actions button,
+.cart-item-actions a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.cart-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;   /* poți să-l scoți dacă vrei container mai mic */
+}
+
+/* Totalul rămâne sus, la dreapta */
+.cart-content .total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Linkurile de jos: stânga / dreapta, împinse la baza containerului */
+.cart-content .back-link {
+    margin-top: auto;              /* împinge div-ul jos */
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+
+.update-btn {
+    background: #667eea;
+    color: white;
+}
+
+.remove-btn {
+    background: #ff4757;
+    color: white;
+}
+
+.total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space_between;
+}
+
+.links a {
+    text-decoration: none;
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* ============================================================
+   10. LINK ÎNAPOI
+   ============================================================ */
+.back-link {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 40px;
+}
+
+/* formularul de trimitere */
+.form-container {
+    background: white;
+    padding: 30px;
+    width: 800px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-container-wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4c6ef5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b5bdb;
+}
+
+/* cardul de rezultat */
+.mail-wrapper {
+    max-width: 500px;
+    width: 90%;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+    padding: 30px 28px 24px;
+    text-align: center;
+    margin: 40px auto;
+}
+
+.mail-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mail-message {
+    padding: 15px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.mail-message.success {
+    background: #e3fcec;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mail-message.error {
+    background: #fdecea;
+    color: #a71d2a;
+    border: 1px solid #f5c6cb;
+}
+
+.mail-message a {
+    color: #2b6cb0;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mail-message a:hover {
+    text-decoration: underline;
+}
+
+/* butoanele de sub mesaj */
+.mail-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.mail-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+.mail-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.mail-btn.secondary {
+    background: #eef1f7;
+    color: #333;
+}
+
+.mail-btn.secondary:hover {
+    background: #e2e6ee;
+}

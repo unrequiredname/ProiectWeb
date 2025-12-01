@@ -1,0 +1,333 @@
+/* GLOBAL */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+    margin: 0;
+}
+
+/* HEADER */
+.admin-header {
+    background: #4c6ef5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.admin-header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: 600;
+}
+
+.admin-header nav a:hover {
+    text-decoration: underline;
+}
+
+/* CONTAINER PRINCIPAL  */
+.admin-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.admin-title {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.content {
+    padding: 40px;
+    min-height: 400px;
+}
+
+
+/* ===================== MESAJ EROARE / EMPTY ===================== */
+.admin-error {
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffdddd;
+    color: #a30000;
+    margin-bottom: 20px;
+    border: 1px solid #ffaaaa;
+    text-align: center;
+    font-weight: 600;
+}
+
+.admin-empty {
+    text-align: center;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* ===================== TABEL PRODUSE ===================== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.admin-table thead {
+    background: #f1f3ff;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.admin-table th {
+    font-weight: 700;
+    color: #333;
+}
+
+.admin-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/* IMAGINE PRODUS în tabel */
+
+.admin-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.admin-product-img {
+    width: 100%;
+    height: 170px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.admin-product-card {
+    background: #fdfdff;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    padding: 18px;
+    transition: all 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.admin-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.admin-product-info h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.admin-product-category {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.admin-product-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    min-height: 40px;
+}
+
+.admin-product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.admin-product-image {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.no-image {
+    color: #888;
+    font-style: italic;
+}
+
+/* ACȚIUNI ÎN TABEL (Modificare / Ștergere) */
+.admin-actions {
+    white-space: nowrap;
+}
+
+.admin-btn {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.admin-btn-edit {
+    background: #4c6ef5;
+    color: #fff;
+}
+
+.admin-btn-edit:hover {
+    background: #3b5bdb;
+}
+
+.admin-btn-delete {
+    background: #fa5252;
+    color: #fff;
+}
+
+.admin-btn-delete:hover {
+    background: #e03131;
+}
+
+/* LINKURI DE SUB TABEL */
+.admin-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.admin-links a {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #4c6ef5;
+    font-weight: 600;
+}
+
+.admin-links a:hover {
+    text-decoration: underline;
+}
+
+/* ===================== FORMULAR ADD / EDIT PRODUCT ===================== */
+.admin-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: #333;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+}
+
+.admin-submit {
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 15px;
+    background: #4c6ef5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-submit:hover {
+    background: #3b5bdb;
+}
+
+.admin-id-box {
+    background: #f1f3ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* ===================== BUTOANE GENERALE DE ACȚIUNE (CARDURI / TOOLBAR) ===================== */
+.admin-toolbar {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.admin-toolbar-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: #10ac84;
+    transition: background 0.2s;
+}
+
+.admin-toolbar-btn:hover {
+    background: #0d8f70;
+}
+
+.admin-toolbar-btn.edit {
+    background: #f39c12;
+}
+
+.admin-toolbar-btn.edit:hover {
+    background: #d1890f;
+}
+
+.admin-toolbar-btn.delete {
+    background: #e74c3c;
+}
+
+.admin-toolbar-btn.delete:hover {
+    background: #c0392b;
+}
+
+/* Dacă ai butoane pe carduri de produse în admin */
+.admin-card-btns {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}

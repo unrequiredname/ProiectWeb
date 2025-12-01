@@ -12,5 +12,5 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
     echo "Inregistrarea a fost stearsa";
 }
-echo "<p><a href='Vizualizare.php'>Index</a></p>";
+echo "<p><a href='Vizualizare.php'>Înregistrări</a></p>";
 ?>

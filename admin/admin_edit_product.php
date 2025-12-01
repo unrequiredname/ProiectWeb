@@ -20,9 +20,9 @@ if(!empty($_POST['id'])) {
                 echo "<div> ERROR: Completati campurile obligatorii </div>";
             }else{
                 try {
-                    $db->updateDB("UPDATE product 
+                    $product = $db->updateDB("UPDATE product 
                                     SET name=?, code=?, image=?, price=?, descriere=?, categorie=? 
-                                    WHERE id=?", [$name,$code,$image, $price, $descriere, $categorie]);
+                                    WHERE id=?", [$name, $code, $image, $price, $descriere, $categorie, $id]);
                 }catch (PDOException $e){
                     echo "ERROR: nu se poate executa update." . htmlspecialchars($e->getMessage());
                 }
@@ -34,45 +34,98 @@ if(!empty($_POST['id'])) {
 }
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DYD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-    <title> <?php if(!empty($_GET['id'])){echo "Modificare inregistrare";}?> </title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
-</head>
-<body>
-<h1> <?php if(!empty($_GET['id'])) {echo "Modificare Inregistrare";}?> </h1>
-<?php if($error!=''){
-echo "<div style='padding:4px; border:1px solid red; color:red'> . $error.</div>";}?>
-
-<form action="" method='post'>
-    <div>
-        <?php if(!empty($_GET['id'])){ ?>
-            <input type="hidden" name="id" value="<?php echo htmlspecialchars($_GET['id']);?>" />
-            <p>ID: <?php echo htmlspecialchars($_GET['id']); ?></p>
-
         <?php
         $rows = $db->getDBResult("SELECT * FROM product WHERE id=?", [$_GET['id']]);
+
         if(!empty($rows)){
             $row = $rows[0];?>
-
-            <strong>Nume: </strong> <input type="text" name="nume" value="<?php echo htmlspecialchars($row['name']); ?>"/><br/>
-            <strong>Code: </strong> <input type="text" name="code" value="<?php echo htmlspecialchars($row['code']); ?>"/><br/>
-            <strong>Imagine: </strong> <input type="text" name="imagine" value="<?php echo htmlspecialchars($row['image']); ?>"/><br/>
-            <strong>Pret: </strong> <input type="text" name="price" value="<?php echo htmlspecialchars($row['price']); ?>"/><br/>
-            <strong>Descriere: </strong> <input type="text" name="descriere" value="<?php echo htmlspecialchars($row['descriere']); ?>"/><br/>
-            <strong>Categorie: </strong> <input type="text" name="categorie" value="<?php echo htmlspecialchars($row['categorie']); ?>"/><br/>
-
         <?php
         }else{
             echo"<div>Nu s-au gasit inregistrari.</div>";
-            }
+        }
         ?>
-        <br/>
-        <input type="submit" name="submit" value="Submit" />
-        <a href="Vizualizare.php">Index</a>
-        <?php } ?>
-    </div>
-</form>
-</body>
+            <!DOCTYPE html>
+            <html lang="ro">
+            <head>
+                <meta charset="UTF-8">
+                <title>Modificare înregistrare</title>
+                <link rel="stylesheet" href="../CSS/interfataAdmin.css">
+            </head>
+            <body>
+
+            <div class="admin-header">
+                <h2>🛠️ Panou Admin</h2>
+                <nav>
+                    <a href="index.php">Home</a>
+                    <a href="Vizualizare.php">Produse</a>
+                    <a href="admin_add_product.php">Adauga un produs nou</a>
+                    <?php if(!isset($_SESSION['member_id'])) {?>
+                        <a href="login_admin.php">Logout</a>
+                    <?php }else{?>
+                        <a href="logout_admin.php">Logout</a>
+                    <?php }?>
+                </nav>
+            </div>
+
+            <div class="admin-container">
+
+                <h1 class="admin-title">Modificare înregistrare</h1>
+
+                <?php if ($error !== ''){ ?>
+                    <div class="admin-error"><?= htmlspecialchars($error) ?></div>
+                <?php } ?>
+
+                <?php if (!empty($_GET['id'])){ ?>
+                    <?php
+                    $rows = $db->getDBResult("SELECT * FROM product WHERE id=?", [$_GET['id']]);
+                    ?>
+                    <?php if (!empty($rows)){
+                        $row = $rows[0];
+                    } ?>
+                        <form action="" method="post" class="admin-form">
+
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id']) ?>">
+
+                            <label>ID produs:</label>
+                            <div class="admin-id-box"><?= htmlspecialchars($_GET['id']) ?></div>
+
+                            <label for="nume">Nume produs:</label>
+                            <input type="text" id="nume" name="nume"
+                                   value="<?= htmlspecialchars($row['name']) ?>">
+
+                            <label for="code">Cod produs:</label>
+                            <input type="text" id="code" name="code"
+                                   value="<?= htmlspecialchars($row['code']) ?>">
+
+                            <label for="imagine">Imagine (link):</label>
+                            <input type="text" id="imagine" name="imagine"
+                                   value="<?= htmlspecialchars($row['image']) ?>">
+
+                            <label for="price">Preț:</label>
+                            <input type="text" id="price" name="price"
+                                   value="<?= htmlspecialchars($row['price']) ?>">
+
+                            <label for="descriere">Descriere:</label>
+                            <input type="text" id="descriere" name="descriere"
+                                   value="<?= htmlspecialchars($row['descriere']) ?>">
+
+                            <label for="categorie">Categorie:</label>
+                            <input type="text" id="categorie" name="categorie"
+                                   value="<?= htmlspecialchars($row['categorie']) ?>">
+
+                            <button type="submit" name="submit" class="admin-submit">
+                                Salvează modificările
+                            </button>
+                        </form>
+
+                    <?php }else{ ?>
+                        <div class="admin-error">Nu s-au găsit înregistrări pentru acest ID.</div>
+                    <?php }  ?>
+
+                <div class="admin-links">
+                    <a href="Vizualizare.php">Înapoi la listă produse</a>
+                    <a href="index.php">Înapoi la Home</a>
+                </div>
+            </div>
+            </body>
 </html>
